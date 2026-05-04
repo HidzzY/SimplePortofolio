@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Portofolio Muhammad Wahid - Web Developer, Frontend Developer, dan UI Designer">
+<meta name="theme-color" content="#0f172a">
+<title>Muhammad Wahid | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<style>
+:root {
+    --primary: #38bdf8;
+    --primary-dark: #0ea5e9;
+    --primary-glow: rgba(56,189,248,0.4);
+    --bg-dark: #0f172a;
+    --bg-darker: #020617;
+    --bg-card: rgba(30,41,59,0.5);
+    --text-light: #f1f5f9;
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 10%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    transition: all 0.3s var(--transition-smooth);
+    border-bottom: 1px solid rgba(56,189,248,0.2);
+}
+
+nav.scrolled {
+    padding: 0.8rem 10%;
+    background: rgba(2,6,23,0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+nav h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s var(--transition-smooth);
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    width: 80%;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rem 10% 5rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text .greeting {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-text h1 span {
+    background: linear-gradient(135deg, var(--primary), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-text .dynamic-wrapper {
+    margin: 1rem 0;
+}
+
+#typing {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    min-height: 2.5rem;
+}
+
+.hero-text p {
+    font-size: 1rem;
+    color: #94a3b8;
+    margin: 1.5rem 0;
+    max-width: 550px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-smooth);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-darker);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: rgba(56,189,248,0.1);
+    transform: translateY(-3px);
+}
+
+.hero-img {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img img {
+    width: 280px;
+    height: 280px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 40px var(--primary-glow);
+    transition: all 0.5s var(--transition-smooth);
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero-img img:hover {
+    transform: scale(1.02) rotate(2deg);
+    border-radius: 50%;
+    box-shadow: 0 0 60px var(--primary);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    display: inline-block;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 3px;
+}
+
+.skills {
+    padding: 5rem 10%;
+    background: rgba(2,6,23,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(56,189,248,0.2);
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.1);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.skill-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-name i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 10px;
+    transition: width 1.2s var(--transition-smooth);
+    position: relative;
+}
+
+.gallery {
+    padding: 5rem 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: all 0.5s var(--transition-smooth);
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.gallery-item img.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(2,6,23,0.9), transparent);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s var(--transition-smooth);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 15px;
+    border: 2px solid var(--primary);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.contact {
+    padding: 5rem 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s var(--transition-smooth);
+    border: 1px solid rgba(56,189,248,0.2);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    background: rgba(56,189,248,0.1);
+}
+
+.contact-card a {
+    color: var(--text-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.contact-card i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.contact-card:hover a {
+    color: var(--primary);
+}
+
+.wa-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    transition: all 0.3s;
+    z-index: 100;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--primary);
+    color: var(--bg-darker);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-darker);
+    border-top: 1px solid rgba(56,189,248,0.2);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--bg-card);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(2,6,23,0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: left 0.3s var(--transition-smooth);
+    }
+    
+    nav ul.active {
+        left: 0;
+    }
+    
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 6rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn-group {
+        justify-content: center;
+    }
+    
+    .hero-img img {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .skills, .gallery, .contact {
+        padding: 3rem 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    #typing {
+        font-size: 1.1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+    <div class="spinner"></div>
+</div>
+
+<div id="particles-js"></div>
+
+<nav>
+    <h2>Wahid Tamvanzz</h2>
+    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <ul id="navMenu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <div class="greeting">✨ WELCOME TO MY PORTOFOLIO</div>
+        <h1>Muhammad <span>Wahid</span></h1>
+        <div class="dynamic-wrapper">
+            <h3 id="typing"></h3>
+        </div>
+        <p>I'm a passionate web developer with a strong interest in creating beautiful and functional digital experiences. Currently working as a computer operator while continuously improving my coding skills.</p>
+        <div class="btn-group">
+            <a href="#skills" class="btn btn-primary"><i class="fas fa-code"></i> My Skills</a>
+            <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+        </div>
+    </div>
+    <div class="hero-img">
+        <img src="foto.jpeg" alt="Muhammad Wahid">
+    </div>
+</section>
+
+<section class="skills" id="skills">
+    <div class="section-header">
+        <h2>My Skills</h2>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fab fa-html5"></i> html</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="85"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fab fa-css3-alt"></i> css</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="75"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fab fa-js"></i> Next.js</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="70"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fas fa-mobile-alt"></i> Turu</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="85"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fas fa-paint-brush"></i> Ceo</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="100"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fas fa-code-branch"></i> Vibe Coding</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="100"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fas fa-brain"></i> Creative Thinking</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="88"></div>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-info">
+                <span class="skill-name"><i class="fas fa-database"></i> Database</span>
+                <span class="skill-percent">0%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" data-percent="78"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <div class="section-header">
+        <h2>My Proyek</h2>
+    </div>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="foto1.png" alt="Project 1" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+            <img src="foto2.png" alt="Project 2" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+            <img src="foto3.png" alt="Project 3" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+            <img src="foto4.png" alt="Project 4" loading="lazy">
+            <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="section-header">
+        <h2>My Contact</h2>
+    </div>
+    <div class="contact-container">
+        <div class="contact-card"><a href="https://www.instagram.com/w.hidzy" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
+        <div class="contact-card"><a href="https://t.me/hidzex3c" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></div>
+        <div class="contact-card"><a href="https://tiktok.com/@w.hizz" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></div>
+        <div class="contact-card"><a href="https://www.facebook.com/muhammadfarhansuryajaya" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div>
+        <div class="contact-card"><a href="https://www.youtube.com/@WaaClips" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></div>
+        <div class="contact-card"><a href="https://www.threads.com/@w.hidzy" target="_blank"><i class="fab fa-threads"></i> Threads</a></div>
+    </div>
+</section>
+
+<a href="https://wa.me/6285363504530" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+
+<footer>
+    <p>© 2026 Muhammad Wahid | kapan ya when</p>
+</footer>
+
+<div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#38bdf8" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#38bdf8", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out" }
+    },
+    interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+        modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+    }
+});
+
+// Hide Loader
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hide');
+    }, 500);
+});
+
+// Navbar Scroll Effect
+const navbar = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Mobile Menu
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+menuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuBtn.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+});
+
+// Close menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+// Active Link on Scroll
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+updateActiveLink();
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Scroll Reveal
+function revealSections() {
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+}
+window.addEventListener('scroll', revealSections);
+revealSections();
+
+// Typing Animation
+const roles = ["Web Developer", "Frontend Developer", "UI/UX Designer", "Creative Coder"];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
+
+function typeEffect() {
+    const typingEl = document.getElementById('typing');
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+        typingEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+    }
+    
+    if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+        return;
+    }
+    
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeEffect, 500);
+        return;
+    }
+    
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+typeEffect();
+
+// Skill Animation
+let skillsAnimated = false;
+const skillFills = document.querySelectorAll('.skill-fill');
+
+function animateSkills() {
+    skillFills.forEach((fill, index) => {
+        const percent = parseInt(fill.getAttribute('data-percent'));
+        const percentText = fill.parentElement.previousElementSibling.querySelector('.skill-percent');
+        setTimeout(() => {
+            let current = 0;
+            const interval = setInterval(() => {
+                if (current >= percent) {
+                    clearInterval(interval);
+                } else {
+                    current++;
+                    fill.style.width = current + '%';
+                    if (percentText) percentText.textContent = current + '%';
+                }
+            }, 15);
+        }, index * 100);
+    });
+}
+
+function checkSkills() {
+    if (!skillsAnimated) {
+        const skillsSection = document.getElementById('skills');
+        const rect = skillsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            skillsAnimated = true;
+            animateSkills();
+        }
+    }
+}
+window.addEventListener('scroll', checkSkills);
+checkSkills();
+
+// Gallery Scroll Reveal
+const galleryImages = document.querySelectorAll('.gallery-item img');
+function revealGallery() {
+    galleryImages.forEach((img, idx) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+            setTimeout(() => img.classList.add('show'), idx * 100);
+        }
+    });
+}
+window.addEventListener('scroll', revealGallery);
+revealGallery();
+
+// Lightbox Modal
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImg');
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+    });
+});
+document.querySelector('.modal-close').addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+let isDark = true;
+themeToggle.addEventListener('click', () => {
+    if (isDark) {
+        document.documentElement.style.setProperty('--bg-dark', '#f8fafc');
+        document.documentElement.style.setProperty('--bg-darker', '#e2e8f0');
+        document.documentElement.style.setProperty('--bg-card', 'rgba(203,213,225,0.5)');
+        document.documentElement.style.setProperty('--text-light', '#0f172a');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        document.documentElement.style.setProperty('--bg-dark', '#0f172a');
+        document.documentElement.style.setProperty('--bg-darker', '#020617');
+        document.documentElement.style.setProperty('--bg-card', 'rgba(30,41,59,0.5)');
+        document.documentElement.style.setProperty('--text-light', '#f1f5f9');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+    isDark = !isDark;
+});
+
+// Preload images
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+    if (img.complete) return;
+    img.addEventListener('error', () => {
+        console.warn(`Image not found: ${img.src}`);
+    });
+});
+</script>
+</body>
+</html>
